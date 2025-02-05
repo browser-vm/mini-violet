@@ -1,0 +1,20 @@
+{
+  "name": "mini-violet-frontend",
+  "version": "1.0.0",
+  "description": "A React frontend for the mini-violet proxy service.",
+  "author": "browser-vm",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9"
+  }
+}
