@@ -9,6 +9,6 @@
     "@tomphttp/bare-server-node": "^1.2.2",
     "@titaniumnetwork-dev/ultraviolet": "^3.2.1",
     "express": "^4.18.2",
-    "ultraviolet-static": "^1.1.0"
+    "ultraviolet-static": "^1.0.0"
   }
 }
