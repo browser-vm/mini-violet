@@ -1,6 +1,7 @@
 const express = require('express');
 const { createBareServer } = require('@tomphttp/bare-server-node');
 const { uvPath, codec } = require('@titaniumnetwork-dev/ultraviolet');
+const path = require('path');
 const { publicPath } = require('ultraviolet-static');
 
 const app = express();
@@ -21,8 +22,16 @@ app.get('/proxy', (req, res) => {
 app.use(express.static(publicPath));
 app.use('/uv', express.static(uvPath));
 
+app.use(express.static(path.join(__dirname, 'frontend/build')));
+
+// Handle all other routes by serving the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+});
+
 // Start server
 app.listen(port, () => {
   console.log(`Proxy running on port ${port}`);
   console.log(`Access via: http://localhost:${port}/uv/service/${codec.xor.encode('https://example.com')}`);
+  console.log(`Frontend available at: http://localhost:${port}`);
 });
